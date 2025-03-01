@@ -5,4 +5,10 @@
  ```
  SELECT user_id, stars FROM reviews WHERE stars =3;
  ```
- 
+ 2 SQL SELECT
+  Exercise 1:
+  Your given a products table, which contains data about different Microsoft Azure cloud products.
+  Solution:
+ ```
+ SELECT * FROM products;
+ ```
