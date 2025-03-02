@@ -1,26 +1,27 @@
 # SQL Exercises LABO INF 2430
+ ## SQL BASICS
  These are the SQL query exercises done in the LAB class - INF2430.
  ---
- ## **1. SQL INTRO**
+ ### **1. SQL INTRO**
  - **Exercise INTRO 1** :
  ```
  SELECT user_id, stars FROM reviews WHERE stars =3;
  ```
- ## **2. SQL SELECT**
+ ### **2. SQL SELECT**
   - **Exercise SELECT 1:**
    Your given a products table, which contains data about different Microsoft Azure cloud products.
    Solution:
   ```
   SELECT * FROM products;
   ```
- ## **3. SQL WHERE**
+ ### **3. SQL WHERE**
   - **Exercise WHERE 1:**
   Given the reviews table, write a query to retrieve all 3-star reviews using the SQL WHERE clause. Only display the user_id and stars columns. 
   Solution:
   ```
   SELECT user_id, stars FROM reviews WHERE stars =3;
   ```
- ## **4. SQL AND,OR,NOT**
+ ### **4. SQL AND,OR,NOT**
   - **Exercise AND,OR,NOT 1:**
   Let's practice using AND along with WHERE to filter Amazon reviews based on all 4 of these conditions:
    the review should have 4 or more stars
@@ -41,7 +42,7 @@
    ```
    SELECT * FROM reviews WHERE user_id = 123 OR user_id = 265 OR user_id = 362 AND stars > 2 AND stars  <= 4;
    ```
- ## **5. SQL BETWEEN**
+ ### **5. SQL BETWEEN**
   - **Exercise BETWEEN 1:**
   Imagine you are a Data Analyst working at CVS Pharmacy, and you had access to pharmacy sales data. Use the BETWEEN SQL command to find data on medicines:
   
@@ -53,7 +54,7 @@
    ```
    SELECT manufacturer, drug, units_sold FROM pharmacy_sales WHERE( manufacturer = 'Biogen' OR manufacturer = 'AbbVie' OR manufacturer = 'Eli Lilly') AND ( units_sold BETWEEN 100000 AND 105000);
    ```
- ## **6. SQL IN**
+ ### **6. SQL IN**
   - **Exercise IN 1:**
   Imagine you are a Data Analyst working at CVS Pharmacy, and you had access to pharmacy sales data. Use the IN SQL command to find data on medicines:
 
@@ -65,7 +66,7 @@
    ```
    SELECT manufacturer, drug, units_sold FROM pharmacy_sales WHERE ( manufacturer IN ('Roche', 'Bayer','AstraZeneca')) AND (NOT( units_sold BETWEEN 55000 AND 550000));
    ```
- ## **7. SQL LIKE**
+ ### **7. SQL LIKE**
   - **Exercise LIKE 1:**  
   You have a table of 1000 customer records from a small-business based in Australia.
   Find all customers whose first name starts with "F" and the last letter in their last name is "ck".
@@ -84,7 +85,7 @@
    ```
     SELECT * FROM customers WHERE customer_name LIKE ('_ee%');
    ```
- ## **8. SQL FILTERING REVIEW**
+ ### **8. SQL FILTERING REVIEW**
   - **Exercise FILTERING REVIEW 1:** 
   You have a table of 1000 customer records from a small-business based in Australia.
   Find all customers who are between the ages of 18 and 22 (inclusive), live in either Victoria, Tasmania, Queensland, their gender isn't "n/a", and their name starts with either 'A' or 'B'.
@@ -94,3 +95,22 @@
   ```
    SELECT * FROM customers WHERE (state IN('Victoria' , 'Tasmania', 'Queensland'))  AND (age BETWEEN 18 AND 22) AND (gender != 'n/a') AND ( (customer_name LIKE ('A%')) OR ( customer_name LIKE ('B%')));
   ```
+ ## SQL INTERMEDIATE
+ ### **1. SQL COUNT**
+  - **Exercise COUNT 1:**
+  Output the number of rows in the pharmacy_sales table.
+  
+  Solution:
+  ```
+   SELECT COUNT(*) FROM pharmacy_sales;
+  ```
+  - **Exercise SUM 2:**   
+  Imagine you are a Data Analyst working at CVS Pharmacy, and you had access to pharmacy sales data.
+  Output the total number of drugs manufactured by Pfizer, and output the total sales for all the Pfizer drugs.
+  
+  
+  Solution:
+  ```
+   SELECT COUNT(*) , SUM(total_sales) FROM pharmacy_sales WHERE manufacturer = 'Pfizer';
+  ```
+  
