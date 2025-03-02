@@ -137,4 +137,24 @@
   ```
    SELECT MAX(open) FROM stock_prices WHERE ticker = 'NFLX';
   ```
-    
+ ### **2. SQL GROUP BY**
+  - **Exercise 1 GROUP BY:**
+  For every FAANG stock in the stock_prices dataset, write a SQL query to find the lowest price each stock ever opened at? Be sure to also order your results by price, in descending order.
+  
+  
+  Solution:
+  ```
+   SELECT MIN(open), ticker FROM stock_prices GROUP BY ticker ORDER BY min DESC;
+  ```
+  - **Exercise 2 GROUP BY:**
+  Suppose you are given a table of candidates and their skills. How many candidates possess each of the different skills? Sort your answers based on the count of candidates, from highest to lowest.
+  
+  
+  Solution:
+  ```
+  SELECT COUNT(candidate_id),skill FROM candidates GROUP BY skill ORDER BY count DESC; 
+  ```
+ ### **2. SQL HAVING** 
+ 
+  
+  
