@@ -92,7 +92,5 @@
 
   Solution:
   ```
-   ```
-    SELECT * FROM customers WHERE customer_name LIKE ('_ee%');
-   ```
+   SELECT * FROM customers WHERE (state IN('Victoria' , 'Tasmania', 'Queensland'))  AND (age BETWEEN 18 AND 22) AND (gender != 'n/a') AND ( (customer_name LIKE ('A%')) OR ( customer_name LIKE ('B%')));
   ```
