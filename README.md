@@ -96,7 +96,7 @@
    SELECT * FROM customers WHERE (state IN('Victoria' , 'Tasmania', 'Queensland'))  AND (age BETWEEN 18 AND 22) AND (gender != 'n/a') AND ( (customer_name LIKE ('A%')) OR ( customer_name LIKE ('B%')));
   ```
  ## SQL INTERMEDIATE
- ### **1. SQL COUNT**
+ ### **1. COUNT,SUM,AVG**
   - **Exercise COUNT 1:**
   Output the number of rows in the pharmacy_sales table.
   
@@ -121,3 +121,20 @@
   ```
    SELECT AVG(open) FROM stock_prices WHERE ticker = 'GOOG';
   ```
+  - **Exercise MIN 4:**
+  Use SQL's MIN command in this practice exercise, to find the lowest Microsoft stock (MSFT) ever opened at.
+  
+  
+  Solution:
+  ```
+  SELECT MIN(open) FROM stock_prices WHERE ticker = 'MSFT';
+  ```
+  - **Exercise MAX 5:**
+  Use SQL's MAX command in this practice exercise, to find the highest Netflix stock (NFLX) ever opened at.
+  
+  
+  Solution:
+  ```
+   SELECT MAX(open) FROM stock_prices WHERE ticker = 'NFLX';
+  ```
+    
