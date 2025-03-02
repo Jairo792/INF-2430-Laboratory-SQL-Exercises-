@@ -171,6 +171,17 @@
   ```
    SELECT candidate_id FROM candidates GROUP BY candidate_id HAVING COUNT (candidate_id) >= 3;
   ```
+ ### **2. SQL DISTINCT**
+  - **Exercise 1 SQL DISTINCT:**
+  Assume you're given a table containing data on Amazon customers and their spending on products in different category. Write a query using COUNT DISTINCT to identify the number of unique products within each product category.
+  
+  
+  Solution:
+  ```
+   SELECT COUNT(DISTINCT product), category FROM product_spend GROUP BY category;
+  ```
+  
+  
   
   
  
