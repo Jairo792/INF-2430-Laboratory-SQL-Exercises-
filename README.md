@@ -163,6 +163,16 @@
   ```
    SELECT MIN(open), ticker FROM stock_prices GROUP BY ticker HAVING MIN(open) >= 101;
   ```
+  - **Exercise 2 SQL HAVING:**
+  Given a table of candidates and their technical skills, list the candidate IDs of candidates who have more than 2 technical skills.
+  
+  
+  Solution:
+  ```
+   SELECT candidate_id FROM candidates GROUP BY candidate_id HAVING COUNT (candidate_id) >= 3;
+  ```
+  
+  
  
   
   
