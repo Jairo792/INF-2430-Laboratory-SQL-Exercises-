@@ -84,3 +84,15 @@
    ```
     SELECT * FROM customers WHERE customer_name LIKE ('_ee%');
    ```
+ ## **8. SQL FILTERING REVIEW**
+  - **Exercise FILTERING REVIEW 1:** 
+  You have a table of 1000 customer records from a small-business based in Australia.
+  Find all customers who are between the ages of 18 and 22 (inclusive), live in either Victoria, Tasmania, Queensland, their gender isn't "n/a", and their name starts with either 'A' or 'B'.
+
+
+  Solution:
+  ```
+   ```
+    SELECT * FROM customers WHERE customer_name LIKE ('_ee%');
+   ```
+  ```
