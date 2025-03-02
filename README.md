@@ -65,4 +65,22 @@
    ```
    SELECT manufacturer, drug, units_sold FROM pharmacy_sales WHERE ( manufacturer IN ('Roche', 'Bayer','AstraZeneca')) AND (NOT( units_sold BETWEEN 55000 AND 550000));
    ```
-   
+ ## **7. SQL LIKE**
+  - **Exercise LIKE 1: **  
+  You have a table of 1000 customer records from a small-business based in Australia.
+  Find all customers whose first name starts with "F" and the last letter in their last name is "ck".
+  
+  
+  Solution:
+   ```
+    SELECT * FROM customers WHERE customer_name LIKE 'F%ck';
+   ```
+  - **Exercise LIKE 2: **
+  You have a table of 1000 customer records from a small-business based in Australia.
+  Find all customers where the 2nd and 3rd letter in their name is "e". 
+
+  
+  Solution:
+    ```
+    SELECT * FROM customers WHERE customer_name LIKE ('_ee%');
+   ```
