@@ -155,6 +155,14 @@
   SELECT COUNT(candidate_id),skill FROM candidates GROUP BY skill ORDER BY count DESC; 
   ```
  ### **2. SQL HAVING** 
+  - **Exercise 1 SQL HAVING:**
+  Use SQL's HAVING & MIN commands to find all FAANG stocks whose open share price was always greater than $100.
+  
+  
+  Solution:
+  ```
+   SELECT MIN(open), ticker FROM stock_prices GROUP BY ticker HAVING MIN(open) >= 101;
+  ```
  
   
   
