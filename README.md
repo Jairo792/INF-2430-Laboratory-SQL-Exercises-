@@ -113,4 +113,11 @@
   ```
    SELECT COUNT(*) , SUM(total_sales) FROM pharmacy_sales WHERE manufacturer = 'Pfizer';
   ```
+  - **Exercise AVG 3:**
+  Write a SQL query using AVG to find the average open price for Google stock (which has a stock ticker symbol of 'GOOG').
   
+  
+  Solution:
+  ```
+   SELECT AVG(open) FROM stock_prices WHERE ticker = 'GOOG';
+  ```
