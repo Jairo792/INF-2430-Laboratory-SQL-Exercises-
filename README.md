@@ -180,7 +180,7 @@
   ```
    SELECT COUNT(DISTINCT product), category FROM product_spend GROUP BY category;
   ```
-  ### **3. SQL ARITHEMTIC OPERATIONS**
+  ### **3. SQL ARITHMETIC OPERATIONS**
   - **Exercise 1 Substraction:** 
   CVS Health is trying to better understand its pharmacy sales, and how well different products are selling. Each drug can only be produced by one manufacturer.
   Write a query to find the top 3 most profitable drugs sold, and how much profit they made. Assume that there are no ties in the profits. Display the result from the highest to the lowest total profit.
@@ -316,6 +316,47 @@
       WHERE p.page_id = pl.page_id
     )
     ORDER BY p.page_id ASC;
+   ```
+ ### **8. SQL DATE-FUNCTIONS**
+   - **Exercise 1 Date-Functions:**
+   
+   Given a table of Facebook posts, for each user who posted at least twice in 2021, write a query to find the number of days between each user’s first post of the year and last post of the year in the year 2021. Output the user and number of the days between each user's first and last post.
+   p.s. If you've read the Ace the Data Science Interview and liked it, consider writing us a review?
+   
+   
+   Solution:
+   
+   ```
+    SELECT user_id, MAX(post_date::DATE) - MIN(post_date::DATE) AS days_between
+    FROM posts WHERE DATE_PART('year', post_date::DATE) = 2021 GROUP BY user_id HAVING COUNT(post_id)>1;
+   ```
+   - **Exercise 2 Date-Functions:**
+   
+   Assume you're given tables with information about TikTok user sign-ups and confirmations through email and text. New users on TikTok sign up using their email addresses, and upon sign-up, each user receives a text message confirmation to activate their account.
+   Write a query to display the user IDs of those who did not confirm their sign-up on the first day, but confirmed on the second day.
+   
+   Solution:
+   
+   ```
+    SELECT DISTINCT user_id
+    FROM emails 
+    INNER JOIN texts
+      ON emails.email_id = texts.email_id
+    WHERE texts.action_date = emails.signup_date + INTERVAL '1 day'
+      AND texts.signup_action = 'Confirmed';
+   ```
+   
+   - **Exercise 3 Date-Functions:**
+   
+   Given a table of Facebook posts, for each user who posted at least twice in 2021, write a query to find the number of days between each user’s first post of the year and last post of the year in the year 2021. Output the user and number of the days between each user's first and last post.
+   p.s. If you've read the Ace the Data Science Interview and liked it, consider writing us a review?
+
+   
+   Solution:
+   
+   ```
+    SELECT user_id, MAX(post_date::DATE) - MIN(post_date::DATE) AS days_between
+    FROM posts WHERE DATE_PART('year', post_date::DATE) = 2021 GROUP BY user_id HAVING COUNT(post_id)>1;
    ```
 	
    
