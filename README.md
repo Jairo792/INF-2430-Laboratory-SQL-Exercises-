@@ -250,13 +250,13 @@
    
     ```
       SELECT actor, character, platform, avg_likes, 
-    CASE 
-     WHEN avg_likes > 14999 THEN 'Super Likes'
-     WHEN avg_likes >= 4999 THEN 'Good Likes'
-     ELSE 'Low Likes'
-    END AS likes_category
-FROM marvel_avengers
-ORDER BY avg_likes DESC;
+     CASE 
+      WHEN avg_likes > 14999 THEN 'Super Likes'
+      WHEN avg_likes >= 4999 THEN 'Good Likes'
+      ELSE 'Low Likes'
+     END AS likes_category
+     FROM marvel_avengers
+     ORDER BY avg_likes DESC;
  
     ```
    
