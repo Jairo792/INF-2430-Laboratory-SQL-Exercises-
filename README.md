@@ -237,6 +237,33 @@
    ```
     SELECT part, assembly_step FROM parts_assembly WHERE finish_date IS NULL  
    ```
+ ### **7. SQL CASE**
+   - **Exercise 1 SQL Case:**
+    Explore the Marvel Avengers dataset and write a query to categorize superheroes based on their average likes as follows:
+    Super Likes: Superheroes with an average likes count greater than or equal to 15,000.
+    Good Likes: Superheroes with an average likes count between 5,000 and 14,999 (inclusive).
+    Low Likes: Superheroes with an average likes count less than 5,000.
+    Display the actor and character's name, platform, average likes, and the corresponding likes category. Sort the results by average likes.
+   
+   
+   Solution:
+   
+    ```
+      SELECT actor, character, platform, avg_likes, 
+    CASE 
+     WHEN avg_likes > 14999 THEN 'Super Likes'
+     WHEN avg_likes >= 4999 THEN 'Good Likes'
+     ELSE 'Low Likes'
+    END AS likes_category
+FROM marvel_avengers
+ORDER BY avg_likes DESC;
+ 
+    ```
+   
+   
+   
+   
+
    
  
   
