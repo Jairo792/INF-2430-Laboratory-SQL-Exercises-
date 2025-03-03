@@ -199,8 +199,48 @@
   ```
    SELECT card_name, (MAX(issued_amount) - MIN(issued_amount)) AS difference FROM monthly_cards_issued GROUP BY card_name ORDER BY difference DESC;
   ```
+  - **Exercise 3:**
+  Netflix stock had a big-mover month in April 2022 in the reverse direction. That month, Netflix reported that the company lost 200k subscribers in Q1, and expected to lose another two million subs in Q2. In Apr'22, Netflix stock opened that month at $376.80 per share, but closed at $190.36, representing a 49.5% loss – yikes!
   
-    
+  
+  Solution:
+  ```
+   SELECT ticker, COUNT(ticker) FROM stock_prices WHERE (close - open)/open > 0.10 OR (close - open)/open < -0.10 GROUP BY ticker ORDER BY count DESC;
+  ```
+ ### **4. SQL MATH FUNCTIONS**
+  - **Exercise 1 Math Functions:**
+  Imagine you are a Data Analyst working at CVS Pharmacy, and you had access to pharmacy sales data.
+  For all Merck drugs, output the drug name, and the unit cost for each drug, rounded up to the nearest dollar. Order it from cheapest to most expensive drug
+  
+  
+  Solution:
+  ```
+   SELECT drug, CEIL(total_sales / units_sold) AS unit_cost FROM pharmacy_sales WHERE manufacturer = 'Merck' ORDER BY unit_cost;
+--como en C++ xdxd
+  ```
+ ### **5. SQL DIVISION**
+   - **Exercise 1 Math Functions:**
+   This exercise isn’t free, lol
+     
+ ### **6. SQL NULL**
+   - **Exercise 1 SQL Null:**
+   Tesla is investigating production bottlenecks and they need your help to extract the relevant data. Write a query to determine which parts have begun the assembly process but are not yet finished.
+   Assumptions:
+    parts_assembly table contains all parts currently in production, each at varying stages of the assembly process.
+    An unfinished part is one that lacks a finish_date.
+   This question is straightforward, so let's approach it with simplicity in both thinking and solution.
+   Effective April 11th 2023, the problem statement and assumptions were updated to enhance clarity.
+   
+   
+   Solution:
+   
+   ```
+    SELECT part, assembly_step FROM parts_assembly WHERE finish_date IS NULL  
+   ```
+   
+ 
+  
+
   
   
  
