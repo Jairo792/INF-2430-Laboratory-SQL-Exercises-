@@ -248,7 +248,7 @@
    
    Solution:
    
-    ```
+   ```
       SELECT actor, character, platform, avg_likes, 
      CASE 
       WHEN avg_likes > 14999 THEN 'Super Likes'
@@ -258,7 +258,7 @@
      FROM marvel_avengers
      ORDER BY avg_likes DESC;
  
-    ```
+   ```
    
    
    
