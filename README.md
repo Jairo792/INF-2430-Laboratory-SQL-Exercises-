@@ -180,8 +180,27 @@
   ```
    SELECT COUNT(DISTINCT product), category FROM product_spend GROUP BY category;
   ```
+  ### **3. SQL ARITHEMTIC OPERATIONS**
+  - **Exercise 1 Substraction:** 
+  CVS Health is trying to better understand its pharmacy sales, and how well different products are selling. Each drug can only be produced by one manufacturer.
+  Write a query to find the top 3 most profitable drugs sold, and how much profit they made. Assume that there are no ties in the profits. Display the result from the highest to the lowest total profit.
   
   
+  Solution :
+  ```
+   SELECT drug, (total_sales - cogs) AS total_profit FROM pharmacy_sales ORDER BY total_profit DESC LIMIT 3;
+  ```
+  - **Exercise 2:**
+  Your team at JPMorgan Chase is preparing to launch a new credit card, and to gain some insights, you're analyzing how many credit cards were issued each month.
+  Write a query that outputs the name of each credit card and the difference in the number of issued cards between the month with the highest issuance cards and the lowest issuance. Arrange the results based on the largest disparity.
+  
+  
+  Solution:
+  ```
+   SELECT card_name, (MAX(issued_amount) - MIN(issued_amount)) AS difference FROM monthly_cards_issued GROUP BY card_name ORDER BY difference DESC;
+  ```
+  
+    
   
   
  
