@@ -308,12 +308,14 @@
 	Solution:
    
    ```
-    SELECT p.page_id FROM pages p
+    SELECT p.page_id
+    FROM pages p
     WHERE NOT EXISTS (
       SELECT 1
       FROM page_likes pl
       WHERE p.page_id = pl.page_id
-    ) ORDER BY p.page_id ASC;
+    )
+    ORDER BY p.page_id ASC;
    ```
 	
    
