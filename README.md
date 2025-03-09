@@ -418,7 +418,29 @@
     CROSS JOIN order_counts
     ORDER BY corrected_order_id;
    ```
-   
+ ### **2. WINDOW FUNCTION**
+   - **Exercise 3 WINDOW FUNCTION:**
+  Your team at JPMorgan Chase is soon launching a new credit card. You are asked to estimate how many cards you'll issue in the first month.
+
+  Before you can answer this question, you want to first get some perspective on how well new credit card launches typically do in their first month.
+
+  Write a query that outputs the name of the credit card, and how many cards were issued in its launch month. The launch month is the earliest record in the monthly_cards_issued table for a given card. Order the results starting from the biggest issued amount.
+  
+  ```
+   WITH first_launch AS ( SELECT  card_name, MIN(issue_year * 12 + issue_month) AS first_launch_date
+    FROM monthly_cards_issued
+    GROUP BY card_name
+  )
+   SELECT 
+     m.card_name, 
+     m.issued_amount
+    FROM monthly_cards_issued m
+    JOIN first_launch f 
+    ON m.card_name = f.card_name 
+    AND (m.issue_year * 12 + m.issue_month) = f.first_launch_date
+   ORDER BY m.issued_amount DESC;
+
+   ```
    
    
    
