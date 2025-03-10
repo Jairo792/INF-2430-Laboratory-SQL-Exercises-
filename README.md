@@ -516,6 +516,75 @@ SELECT
 FROM ranked_measurements
 GROUP BY measurement_day;
  ```
+ ### **4. SQL LEAD LAG**
+   - **Exercise 1 SQL LEAD LAG:**
+The Bloomberg terminal is the go-to resource for financial professionals, offering convenient access to a wide array of financial datasets. In this SQL interview query for Data Analyst at Bloomberg, you're given the historical data on Google's stock performance.
+
+Your task is to:
+
+Calculate the difference in closing prices between consecutive months.
+Calculate the difference between the closing price of the current month and the closing price from 3 months prior.
+This question serves as a platform for you to explore into the dataset and execute your queries. Please refrain from submitting your solution for this question.
+
+Solution:
+
+ ```
+  WITH MonthlyPrices AS (
+    SELECT
+        DATE_TRUNC('month', date) AS month,
+        ticker,
+        MAX(close) AS monthly_close
+    FROM
+        stock_prices
+    WHERE
+        ticker = 'GOOG' -- Filtrar por Google (GOOG)
+    GROUP BY
+        1, 2
+),
+PriceDifferences AS (
+    SELECT
+        month,
+        monthly_close,
+        LAG(monthly_close, 1) OVER (ORDER BY month) AS prev_month_close,
+        LAG(monthly_close, 3) OVER (ORDER BY month) AS three_months_ago_close
+    FROM
+        MonthlyPrices
+)
+SELECT
+    month,
+    monthly_close,
+    monthly_close - prev_month_close AS month_diff,
+    monthly_close - three_months_ago_close AS three_month_diff
+FROM
+    PriceDifferences;
+ ```
+- **Exercise 2 SQL LEAD LAG:**
+This is the same question as problem #32 in the SQL Chapter of Ace the Data Science Interview!
+
+Assume you're given a table containing information about Wayfair user transactions for different products. Write a query to calculate the year-on-year growth rate for the total spend of each product, grouping the results by product ID.
+
+The output should include the year in ascending order, product ID, current year's spend, previous year's spend and year-on-year growth percentage, rounded to 2 decimal places.
+
+Solution:
+```
+WITH yearly_spend_cte AS (
+  SELECT 
+    EXTRACT(YEAR FROM transaction_date) AS year,
+    product_id, spend AS curr_year_spend,
+    LAG(spend) OVER (
+      PARTITION BY product_id  ORDER BY product_id, EXTRACT(YEAR FROM transaction_date)) AS prev_year_spend 
+  FROM user_transactions
+)
+SELECT 
+  year,
+  product_id, 
+  curr_year_spend, 
+  prev_year_spend, 
+  ROUND(100 *  (curr_year_spend - prev_year_spend)  / prev_year_spend , 2) AS yoy_rate 
+FROM yearly_spend_cte;  
+```
+
+
 
 
 
