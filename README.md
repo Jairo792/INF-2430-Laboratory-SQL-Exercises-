@@ -618,6 +618,23 @@ WHERE NOT EXISTS (
 
 ```
 
+ ### **5. STRING FUNCTIONS**
+ - **Exercise 1 STRING FUNCTIONS**
+  Assume you're given the customer table containing all customer details.
+
+  The branch manager is looking for a male customer whose name ends with "son" and he's 20 years old.
+
+  Write a SQL query which uses LOWER and LIKE to find this customer's details.
+
+  Solution:
+
+
+```
+SELECT * FROM customers WHERE LOWER(customer_name) LIKE '%son' AND gender = 'Male' AND age = 20;
+```
+
+ 
+
 
 
 
