@@ -655,9 +655,47 @@ SELECT
   ('$' || ROUND(sales / 1000000) || ' million') AS sales_mil 
 FROM drug_sales 
 ORDER BY sales DESC, manufacturer;
+
+```
+ ### **6. INSTACART SQL**
+  - **Exercise 1 INSTACART SQL**
+  Explore the ic_products data. Here are some questions to investigate:
+
+  How many items are there?
+  How many different products are in the dataset?
+  Table Schema
+  Here are the schemas for all 5 tables in the Instacart market data.
+
+  ic_order_products_curr, ic_order_products_prior
+  These files specify which products were purchased in each Instacart order. ic_order_products_prior contains previous order contents for all customers, and ic_order_products_curr contains current orders; the table fields are the same.
+
+  The 'reordered' field indicates that the customer has a previous order that contains the product. Other fields should be self-explanatory.
+
+  Solution:
+  
+```
+  SELECT COUNT(*) AS total_items
+FROM (
+  SELECT * FROM ic_order_products_prior
+  UNION ALL
+  SELECT * FROM ic_order_products_curr
+) AS all_orders;
+
+```
+  - **Exercise 2 INSTACART SQL**
+
+For this checkpoint, we want to investigate products that previously had low reorders, but currently have high reorders. Feel free to approach this by measuring counts, percentages, or both.
+
+Write a query to find products previously reordered fewer than 10 times, and currently reordered 10 or more times. Alternatively, write a query to find which products had the biggest and smallest percent changes in products ordered.
+
+Don't worry if your submitted answer is marked wrong – this is merely an open-ended exercise!
+
+Solution:
+
+```
+ 
 ```
 
- 
 
 
 
